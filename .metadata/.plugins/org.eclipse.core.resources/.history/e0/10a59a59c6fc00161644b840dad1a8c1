@@ -1,0 +1,8 @@
+
+public interface Subject {
+	
+	public void addSub(Observer x);
+	public void removeSub(Observer x);
+	public void sendMessage(String message);
+
+}

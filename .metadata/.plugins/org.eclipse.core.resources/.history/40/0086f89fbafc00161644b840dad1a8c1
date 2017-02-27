@@ -1,0 +1,23 @@
+
+public class MagazineGrabber implements Publisher{
+
+	public 
+	@Override
+	public void addSubscriber(Subscriber x) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeSubscriber(Subscriber x) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sendMessage(Subscriber x) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

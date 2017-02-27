@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[]args){
+		
+		Scanner scan = new Scanner(System.in);
+		int choice;
+		String address;
+		System.out.println("Hello, did you want to: \n"
+				+ "1. Add a Subscriber\n"
+				+ "2. Remove a Subscriber\n"
+				+ "3. Send a message to all Subscribers\n");
+		
+		choice = scan.nextInt();
+		
+		while(choice != 1 && choice != 2 && choice != 3){
+			
+			System.out.println("That was not a valid input."
+					+ "Please try again.");
+			
+			choice = scan.nextInt();
+			
+		}
+		if(choice == 1){
+			
+			System.out.println("Please enter an address.");
+			address = scan.next();
+			
+			
+		}
+		
+	}
+}

@@ -1,0 +1,50 @@
+import java.util.ArrayList;
+
+
+public class MagazineGrabber implements Publisher{
+
+	private ArrayList<String> subscriber;
+	private boolean available;
+	
+	public MagazineGrabber(){
+		
+		subscriber = new ArrayList<String>();
+	}
+	@Override
+	public void addSubscriber(String x) {
+		// TODO Auto-generated method stub
+		subscriber.add(x);
+		
+	}
+
+	@Override
+	public void removeSubscriber(String x) {
+		// TODO Auto-generated method stub
+		int subscriberPos = subscriber.indexOf(x);
+		
+		System.out.println("Subscriber " + (subscriberPos + 1) + " removed.");
+		
+		subscriber.remove(subscriberPos);
+	}
+
+	@Override
+	public void sendMessage() {
+		// TODO Auto-generated method stub
+		
+		for(Subscriber subscriber: String x ){
+			
+			subscriber.update(x);
+			
+		}
+		
+	}
+	
+	public void setAvailability(boolean newAvailable){
+		
+		this.available = newAvailable;
+		
+		sendMessage();
+		
+	}
+
+}

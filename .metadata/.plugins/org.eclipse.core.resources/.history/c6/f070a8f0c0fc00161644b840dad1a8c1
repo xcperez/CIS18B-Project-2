@@ -1,0 +1,14 @@
+
+public class MagazineSubscriber implements Subscriber{
+
+	
+	private double available;
+	
+	private static String address;
+	@Override
+	public void update(String x) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,8 @@
+
+public interface Publisher{
+	
+	public void addSubscriber(String x);
+	public void removeSubscriber(String x);
+	public void sendMessage();
+	
+}

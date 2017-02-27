@@ -1,0 +1,16 @@
+
+public class Main implements Subscriber{
+
+	public static void main(String[]args){
+		
+		
+	}
+	@Override
+	public void update(boolean available) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
+}

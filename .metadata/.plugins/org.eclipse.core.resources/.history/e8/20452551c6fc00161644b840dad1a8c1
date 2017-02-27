@@ -1,0 +1,12 @@
+
+public class Customer implements Observer{
+
+	private String customerAddress;
+	
+	@Override
+	public void update(String address) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

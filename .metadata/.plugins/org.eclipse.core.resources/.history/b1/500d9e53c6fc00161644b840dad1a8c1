@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+
+
+public class Magazine implements Subject{
+
+	private ArrayList<Observer> addresses = new ArrayList<Observer>();
+	
+	public ArrayList<Observer> getAddresses(){
+		
+		return addresses;
+		
+	}
+	public void setAddresses(ArrayList<Observer> addresses){
+		
+		this.addresses = addresses;
+		
+	}
+	
+	@Override
+	public void addSub(Observer x) {
+		// TODO Auto-generated method stub
+		addresses.add(x);
+		
+	}
+
+	@Override
+	public void removeSub(Observer x) {
+		// TODO Auto-generated method stub
+		addresses.remove(x);
+		
+	}
+
+	@Override
+	public void sendMessage(String message) {
+		// TODO Auto-generated method stub
+		for(Observer observer : addresses){
+			
+			System.out.println(message);
+		}
+	}
+
+}
