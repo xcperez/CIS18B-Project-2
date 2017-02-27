@@ -1,28 +1,39 @@
+import java.util.Observable;
+import java.util.Observer;
 
-public class Customer implements Observer{
+public class Customer implements Observer, DisplayElement{
 
-	String customerAddress;
+	Observable observable;
+	private String message;
+	private String address;
 	
-	public Customer(String address){
+
+	public Customer(Observable observable){
 		
-		this.customerAddress = address;
-		
-	}
-	
-	public String getCustomerAddress(){
-		
-		return customerAddress;
+		this.observable = observable;
+		observable.addObserver(this);
 		
 	}
-	public void setCustomerAddress(String customerAddress){
-		
-		this.customerAddress = customerAddress;
-		
-	}
+
 	@Override
-	public void update(String message) {
+	public void display() {
 		// TODO Auto-generated method stub
+		
 		System.out.println(message);
+		
+	}
+
+	@Override
+	public void update(Observable obs, Object arg) {
+		// TODO Auto-generated method stub
+		
+		if(obs instanceof Magazine){
+			
+			Magazine magazine = (Magazine)obs;
+			//this.address = magazine.getAddress();
+			this.message = magazine.getMessage();
+			display();
+		}
 		
 	}
 

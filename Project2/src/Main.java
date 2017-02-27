@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 import java.util.Scanner;
 public class Main{
 
@@ -7,10 +7,10 @@ public class Main{
 		int choice;
 		String address;
 		String message; 
-		//ArrayList<Observer> custAddresses = new ArrayList<Observer>(); 
 		
 		Magazine natGeo = new Magazine();
-		//Observer newCust = new Customer();
+		Customer cust = new Customer(natGeo);
+		
 		
 		System.out.println("Hello, did you want to\n"
 			+ "1. Add Subscriber\n"
@@ -35,9 +35,6 @@ public class Main{
 				System.out.println("Please enter an address.");
 				address = scan.next();
 				
-				natGeo.registerObserver(new Customer(address));
-				//custAddresses.add(new Customer(address));
-			
 			
 			}else if(choice == 2){
 			

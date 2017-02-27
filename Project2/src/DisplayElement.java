@@ -1,4 +1,6 @@
 
-public class DisplayElement {
+public interface DisplayElement {
+	
+	public void display();
 
 }

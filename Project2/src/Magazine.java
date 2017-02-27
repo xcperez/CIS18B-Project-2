@@ -1,48 +1,42 @@
 import java.util.ArrayList;
+import java.util.Observable;
 
 
-public class Magazine implements Subject{
+public class Magazine extends Observable{
 
-	private ArrayList<Observer> observers;
-	String message;
+	private String address;
+	private String message;
 	
 	public Magazine(){
 		
-		observers = new ArrayList<Observer>();
-		
 	}
-	@Override
-	public void registerObserver(Observer o) {
-		// TODO Auto-generated method stub
+	
+	public void messageChanged(){
 		
-		observers.add(o);
-		
-	}
-
-	@Override
-	public void removeObserver(Observer o) {
-		// TODO Auto-generated method stub
-		observers.remove(o);
-		
-	}
-
-	@Override
-	public void notifyObservers() {
-		// TODO Auto-generated method stub
-		
-		System.out.println("Notifying Observers");
-		for(Observer observer : observers){
-			
-			observer.update(message);
-			
-		}
+		setChanged();
+		notifyObservers();
 		
 	}
 	public void newMessage(String nMessage){
 		
 		message = nMessage;
-		notifyObservers();
+		messageChanged();
 		
+	}
+	public void setAddress(String address){
+		
+		this.address = address;
+		
+	}
+	public String getAddress(){
+		
+		return address;
+		
+	}
+	
+	public String getMessage(){
+		
+		return message;
 	}
 
 }
