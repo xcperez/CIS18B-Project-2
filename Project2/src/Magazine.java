@@ -14,6 +14,7 @@ public class Magazine implements Subject{
 	@Override
 	public void registerObserver(Observer o) {
 		// TODO Auto-generated method stub
+		
 		observers.add(o);
 		
 	}

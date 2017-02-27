@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 public class Main{
 
@@ -6,9 +7,10 @@ public class Main{
 		int choice;
 		String address;
 		String message; 
+		//ArrayList<Observer> custAddresses = new ArrayList<Observer>(); 
 		
 		Magazine natGeo = new Magazine();
-		Observer newCust = new Customer();
+		//Observer newCust = new Customer();
 		
 		System.out.println("Hello, did you want to\n"
 			+ "1. Add Subscriber\n"
@@ -19,29 +21,41 @@ public class Main{
 		
 		choice = scan.nextInt();
 		
-		while(choice != 1 && choice != 2 && choice != 3){
+		while(choice != 0){
 			
-			System.out.println("That was not a valid input."
-					+ "Please try again.\n");
+			while(choice != 1 && choice != 2 && choice != 3){
+			
+				System.out.println("That was not a valid input."
+						+ "Please try again.\n");
+				choice = scan.nextInt();
+			
+			}
+				if(choice == 1){
+			
+				System.out.println("Please enter an address.");
+				address = scan.next();
+				
+				natGeo.registerObserver(new Customer(address));
+				//custAddresses.add(new Customer(address));
+			
+			
+			}else if(choice == 2){
+			
+				System.out.println("Please enter the address you want to remove.");
+				address = scan.next();
+			
+			
+			}else{
+			
+				System.out.println("Please enter a message");
+			
+				message = scan.next();
+				natGeo.newMessage(message);
+			
+			}
+			
+			System.out.println("Did you want to do anything else? Press 0 to quit.");
 			choice = scan.nextInt();
-			
-		}
-		if(choice == 1){
-			
-			System.out.println("Please enter an address.");
-			
-		}else if(choice == 2){
-			
-			
-		}else{
-			
-			System.out.println("Please enter a message");
-			
-			message = scan.next();
-			natGeo.newMessage(message);
-			
-			
-			
 		}
 	}
 	
