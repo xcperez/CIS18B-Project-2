@@ -29,18 +29,11 @@ public class Magazine implements Subject{
 	public void notifyObservers() {
 		// TODO Auto-generated method stub
 		
-		System.out.println("Notifying Observers");
 		for(Observer observer : observers){
 			
 			observer.update(message);
 			
 		}
-		
-	}
-	public void newMessage(String nMessage){
-		
-		message = nMessage;
-		notifyObservers();
 		
 	}
 
