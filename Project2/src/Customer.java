@@ -15,6 +15,17 @@ public class Customer implements Observer, DisplayElement{
 		
 	}
 
+	public void update(Observable obs, Object arg) {
+		// TODO Auto-generated method stub
+		
+		if(obs instanceof Magazine){
+			
+			Magazine magazine = (Magazine)obs;
+			this.message = magazine.getMessage();
+			display();
+		}
+		
+	}
 	@Override
 	public void display() {
 		// TODO Auto-generated method stub
@@ -23,18 +34,9 @@ public class Customer implements Observer, DisplayElement{
 		
 	}
 
-	@Override
-	public void update(Observable obs, Object arg) {
-		// TODO Auto-generated method stub
-		
-		if(obs instanceof Magazine){
-			
-			Magazine magazine = (Magazine)obs;
-			//this.address = magazine.getAddress();
-			this.message = magazine.getMessage();
-			display();
-		}
-		
-	}
+
+
+	
+	
 
 }

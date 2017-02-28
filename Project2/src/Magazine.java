@@ -13,7 +13,7 @@ public class Magazine extends Observable{
 	public void messageChanged(){
 		
 		setChanged();
-		notifyObservers();
+		notifyObservers(message);
 		
 	}
 	public void newMessage(String nMessage){

@@ -1,6 +1,6 @@
 
 public interface Observer {
 	
-	public void update(String message, String address);
+	public void update(String message);
 
 }
