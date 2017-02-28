@@ -1,0 +1,76 @@
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+
+
+public class SwingObserver {
+	
+	Scanner scan = new Scanner(System.in);
+	JFrame frame;
+	//ArrayList<Customer>cust = new ArrayList<Customer>();
+	ArrayList<Magazine>natGeo = new ArrayList<Magazine>();
+	
+	public static void main(String[]args){
+		
+		SwingObserver example = new SwingObserver();
+		example.go();
+		
+	}
+	public void go(){
+		
+		frame = new JFrame("Subscriber Hub");
+		frame.setVisible(true);
+		
+		JButton button1 = new JButton("Add Subscriber");
+		JButton button2 = new JButton("Delete Subscriber");
+		JButton button3 = new JButton("Send message");
+		
+		button1.addActionListener(new addListener());
+		//button2.addActionListener(new removeListener());
+		//button3.addActionListener(new messageListener());
+		
+		frame.getContentPane().add(BorderLayout.NORTH, button1);
+		frame.getContentPane().add(BorderLayout.CENTER, button2);
+		frame.getContentPane().add(BorderLayout.SOUTH, button3);
+		frame.setSize(500, 500);
+		
+		
+	}
+	
+	class addListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			// TODO Auto-generated method stub
+			frame.setVisible(false);
+			Magazine x = new Magazine();
+			JFrame frameAdd = new JFrame("Add Subscriber");
+			JTextField text = new JTextField("Enter Address\n\n");
+			//text.setSize(200,200);
+			frameAdd.add(text);
+			String address = text.getText();
+			x.setAddress(address);
+			frameAdd.setVisible(true);
+			frameAdd.setSize(500,500);
+			natGeo.add(x);
+			
+			System.out.println(x.getAddress());
+			
+			
+			
+			
+			
+		}
+		
+		
+	}
+
+}

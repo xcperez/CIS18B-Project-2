@@ -1,0 +1,50 @@
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+
+public class SwingObserver {
+	
+	JFrame frame;
+	
+	public static void main(String[]args){
+		
+		SwingObserver example = new SwingObserver();
+		example.go();
+		
+	}
+	public void go(){
+		
+		frame = new JFrame("Subscriber Hub");
+		frame.setVisible(true);
+		
+		JButton button1 = new JButton("Add Subscriber");
+		JButton button2 = new JButton("Delete Subscriber");
+		JButton button3 = new JButton("Send message");
+		
+		/*button.addActionListener(new addListener());
+		button.addActionListener(new removeListener());
+		button.addActionListener(new messageListener());
+		*/
+		frame.getContentPane().add(BorderLayout.NORTH, button1);
+		frame.setSize(500, 500);
+		
+		
+	}
+	
+	class addListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			// TODO Auto-generated method stub
+			System.out.println("Enter an address");
+			
+		}
+		
+		
+	}
+
+}

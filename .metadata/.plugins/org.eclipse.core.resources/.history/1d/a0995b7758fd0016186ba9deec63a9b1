@@ -1,0 +1,134 @@
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+
+
+public class SwingObserver {
+	
+	Scanner scan = new Scanner(System.in);
+	JFrame frame;
+	//ArrayList<Customer>cust = new ArrayList<Customer>();
+	ArrayList<Magazine>natGeo = new ArrayList<Magazine>();
+	
+	public static void main(String[]args){
+		
+		SwingObserver example = new SwingObserver();
+		example.go();
+		
+	}
+	public void go(){
+		
+		frame = new JFrame("Subscriber Hub");
+		frame.setVisible(true);
+		
+		JButton button1 = new JButton("Add Subscriber");
+		JButton button2 = new JButton("Delete Subscriber");
+		JButton button3 = new JButton("Send message");
+		
+		button1.addActionListener(new addListener());
+		//button2.addActionListener(new removeListener());
+		//button3.addActionListener(new messageListener());
+		
+		frame.getContentPane().add(BorderLayout.WEST, button1);
+		frame.getContentPane().add(BorderLayout.CENTER, button2);
+		frame.getContentPane().add(BorderLayout.EAST, button3);
+		frame.setSize(500, 500);
+		
+		
+	}
+	
+	class addListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			// TODO Auto-generated method stub
+			frame.setVisible(false); //sets main menu frame to invisible
+			
+			Magazine x = new Magazine();
+			
+			JFrame frameAdd = new JFrame("Add Subscriber");
+			JTextField text = new JTextField(20);
+			JButton okay = new JButton("Okay");
+			
+			okay.addActionListener(new ActionListener(){
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					
+					
+				}
+				
+				
+			});
+		
+			frameAdd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frameAdd.add(text);
+			frameAdd.setSize(500,500);
+			frameAdd.setVisible(true);
+			
+			text.addActionListener(new ActionListener(){
+
+				
+				public void actionPerformed(ActionEvent arg0) {
+					
+					String address = text.getText();
+					
+					x.setAddress(address);
+					
+					for(Magazine z : natGeo){
+						
+						if(z.getAddress() == address){
+							
+							System.out.println("That address already exists. Going back to the main menu.");
+							
+							frame.setVisible(true);
+							frameAdd.setVisible(false);
+							
+						}else {
+							System.out.println("Added " + x.getAddress());
+							natGeo.add(x);
+						}
+					}
+					
+					
+					
+					
+					
+				}
+				
+			
+			});	
+			
+		}
+		
+	}
+	class removeListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		
+	}
+	class messageListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		
+	}
+	
+}

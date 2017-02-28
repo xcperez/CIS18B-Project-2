@@ -5,7 +5,7 @@ public class Customer implements Observer, DisplayElement{
 
 	Observable observable;
 	private String message;
-	private String address;
+	
 	
 
 	public Customer(Observable observable){
